@@ -2,7 +2,8 @@ package com.nao20010128nao.FuckinCalculator
 
 import android.graphics.Color
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
+import android.os.Bundle
+import android.support.annotation.DrawableRes;
 import android.support.v4.app.FragmentTabHost
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v4.graphics.drawable.DrawableCompat
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements TabHost.OnTabChan
         int[] colors=new int[tw.tabCount]
         Arrays.fill(colors,Color.argb((BigDecimal.valueOf(0xff) * new BigDecimal("0.3")) as int,0xff,0xff,0xff))
         colors[selected]=Color.WHITE
-        Drawable tabUnderlineSelected=getTintedDrawable(R.drawable.abc_tab_indicator_mtrl_alpha,0xff_ffffff)
+        Drawable tabUnderlineSelected=getTintedDrawable(R.drawable.abc_tab_indicator_mtrl_alpha,Color.argb(0xff,0xff,0xff,0xf))
         for (int i = 0; i < tw.childCount; i++) {
             TextView tv = tw.getChildAt(i).findViewById(android.R.id.title) as TextView
             tv.textColor=colors[i]
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements TabHost.OnTabChan
         Log.d("TabChild",tw.getChildAt(selected).class.name)
     }
 
-    public Drawable getTintedDrawable(int res,int color){
+    public Drawable getTintedDrawable(@DrawableRes int res, int color){
         Drawable d=ResourcesCompat.getDrawable(resources,res,theme)
         d=DrawableCompat.wrap(d)
         DrawableCompat.setTint(d,color)
