@@ -1,0 +1,21 @@
+image: nao20010128nao/android-build
+
+before_script:
+  - chmod a+x ./ci/*
+  - source ./ci/prepare.sh
+
+stages:
+  - main
+
+main:
+  stage: main
+  script:
+    - gradle build --info --stacktrace | tee build.log
+    - mv */build/outputs/apk/*.apk .
+    - tree > tree.log
+  artifacts:
+    paths:
+      - "*.apk"
+      - build.log
+      - tree.log
+      - "*/build/outputs/mapping/*/mapping.txt"
