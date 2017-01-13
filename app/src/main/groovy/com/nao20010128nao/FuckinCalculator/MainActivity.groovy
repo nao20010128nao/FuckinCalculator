@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements TabHost.OnTabChan
         multiplyCoefficients=fth.newTabSpec("multiplyCoefficients")
         multiplyCoefficients.indicator=resources.getString(R.string.title_multiply_coefficients)
         fth.addTab(multiplyCoefficients,MultiplyCoefficientsFragment,null)
+
+        onTabChanged("")
     }
 
 
@@ -53,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements TabHost.OnTabChan
         int[] colors=new int[tw.tabCount]
         Arrays.fill(colors,Color.argb((BigDecimal.valueOf(0xff) * new BigDecimal("0.3")) as int,0xff,0xff,0xff))
         colors[selected]=Color.WHITE
-        Drawable tabUnderlineSelected=getTintedDrawable(R.drawable.abc_tab_indicator_mtrl_alpha,Color.argb(0xff,0xff,0xff,0xf))
+        Drawable tabUnderlineSelected=getTintedDrawable(R.drawable.abc_tab_indicator_mtrl_alpha,Color.argb(0xff,0xff,0xff,0xff))
         for (int i = 0; i < tw.childCount; i++) {
             TextView tv = tw.getChildAt(i).findViewById(android.R.id.title) as TextView
             tv.textColor=colors[i]
