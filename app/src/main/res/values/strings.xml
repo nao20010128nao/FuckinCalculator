@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FuckinCalculator</string>
+    <string name="title_npr">nPr</string>
+    <string name="title_ncr">nCr</string>
+    <string name="title_factorial">Factorial</string>
+    <string name="title_multiply_coefficients">Multiply Coefficients</string>
 </resources>
