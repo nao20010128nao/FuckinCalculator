@@ -7,5 +7,6 @@ class TheApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         TypefaceProvider.registerDefaultIconSets()
+        MultiDex.install(this)
     }
 }
