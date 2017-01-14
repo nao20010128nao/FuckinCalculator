@@ -6,6 +6,8 @@
     <string name="title_multiply_coefficients">Multiply Coefficients</string>
     <string name="calculate">Calculate</string>
     <string name="invalid_value">Invalid value</string>
+    <string name="result_equals">"Result = "</string>
+    <string name="result_equals_for_copy_paste">"Result (For copying and pasting) = "</string>
 
 
     <plurals name="was_error">

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.design.widget.Snackbar
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,11 +43,12 @@ public class NCRFragment extends BaseFragment {
                         answer.text=value.toString()
                     })
                 }catch(Throwable e){
+                    Log.e("Error","",e)
                     handler.post({
                         Snackbar.make(n,"${e.class.name}: ${e.message}",Snackbar.LENGTH_LONG).show()
                     })
                 }
-            }).run()
+            }).start()
         }
     }
 
