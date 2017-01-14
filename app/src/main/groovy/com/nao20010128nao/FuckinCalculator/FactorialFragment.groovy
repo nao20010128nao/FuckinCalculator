@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-public class FactorialFragment extends Fragment {
+public class FactorialFragment extends BaseFragment {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState)
+    public void onResume() {
+        super.onResume()
     }
 
     @Override

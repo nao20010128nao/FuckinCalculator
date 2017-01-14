@@ -7,6 +7,7 @@
     android:padding="@dimen/pad_output"
     android:orientation="vertical">
     <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/calculate"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="@string/calculate"

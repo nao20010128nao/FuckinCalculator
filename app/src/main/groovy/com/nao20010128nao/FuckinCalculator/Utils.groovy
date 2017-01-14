@@ -1,6 +1,9 @@
 package com.nao20010128nao.FuckinCalculator
 
+import java.util.regex.Pattern
+
 public class Utils {
+    public static Pattern PATTERN_NUMBER_ANY_DIGIT=Pattern.compile("^[0-9]*\$")
     /**
      * Calculates nPr
      * */
@@ -8,7 +11,7 @@ public class Utils {
         if(n==r)return factorial(n)//nPn=n!
         if(r==BigInteger.ONE)return n//nP1=n
         if(r==BigInteger.ZERO)return BigInteger.ZERO//nP0=0
-        BigInteger now=BigDecimal.ONE
+        BigInteger now=BigInteger.ONE
         r.times {
             now*=n
             n--

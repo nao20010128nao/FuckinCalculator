@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-public class MultiplyCoefficientsFragment extends Fragment {
+public class MultiplyCoefficientsFragment extends BaseFragment {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState)
+    public void onResume() {
+        super.onResume()
     }
 
     @Override

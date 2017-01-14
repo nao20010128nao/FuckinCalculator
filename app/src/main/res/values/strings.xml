@@ -5,4 +5,11 @@
     <string name="title_factorial">Factorial</string>
     <string name="title_multiply_coefficients">Multiply Coefficients</string>
     <string name="calculate">Calculate</string>
+    <string name="invalid_value">Invalid value</string>
+
+
+    <plurals name="was_error">
+        <item quantity="one">There was an error to calculate. Fix errors and try again.</item>
+        <item quantity="other">There were %1$d errors to calculate. Fix errors and try again.</item>
+    </plurals>
 </resources>
