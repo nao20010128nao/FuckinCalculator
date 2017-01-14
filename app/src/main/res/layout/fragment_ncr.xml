@@ -1,8 +1,45 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nao20010128nao.FuckinCalculator.NPRFragment">
+    tools:context="com.nao20010128nao.FuckinCalculator.NPRFragment"
+    android:orientation="vertical">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:padding="@dimen/pad_input">
 
-</FrameLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/n"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:hint="n"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="C"
+            android:id="@+id/p"
+            android:textSize="60sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/r"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:hint="r"/>
+
+    </LinearLayout>
+    <include layout="@layout/calculate_and_result"/>
+</LinearLayout>

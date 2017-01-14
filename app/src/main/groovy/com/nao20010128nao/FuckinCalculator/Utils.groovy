@@ -34,7 +34,7 @@ public class Utils {
         return nPr(n,r)/factorial(r)
     }
     /**
-     * Calculates coefficients of x and y for multiplying (x+y)^n style formula
+     * Calculates coefficients of x^a*y^b for multiplying (x+y)^n style formula
      * */
     public static BigInteger[][] multiplyCoefficients(BigInteger factor,BigInteger xFactor=1,BigInteger yFactor=1){
         def pow={BigInteger a,BigInteger b->
