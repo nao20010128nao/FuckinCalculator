@@ -39,6 +39,23 @@ public class MultiplyCoefficientsFragment extends BaseFragment {
             }
             new Thread({
                 try{
+                    def powCs={CharSequence chs,BigInteger pow,boolean style,boolean appendMul=true->
+                        if(pow==BigInteger.ZERO){
+                            //x^0=1
+                            return ""
+                        }
+                        if(pow==BigInteger.ONE){
+                            return new SpannableStringBuilder().append(chs).append(style?"":(appendMul?"*":""))//x^1=x
+                        }
+                        def ssb=new SpannableStringBuilder()
+                        ssb.append(chs)
+                        if(style){
+                            ssb.append(Utils.applySpannable("${pow}",new SuperscriptSpan()))
+                        }else{
+                            ssb.append("^$pow").append(appendMul?"*":"")
+                        }
+                        return ssb
+                    }
                     BigInteger givenN=n.text.toBigInteger()
                     List<BigInteger[]> value=Utils.multiplyCoefficients(givenN)
                     SpannableStringBuilder ssb=new SpannableStringBuilder()
@@ -55,15 +72,15 @@ public class MultiplyCoefficientsFragment extends BaseFragment {
                         *
                         * */
                         Log.d("it.class","${bi.class}")
-                        ssb.append("r = ${bi[0]} (x").append(Utils.applySpannable("${bi[1]}",new SuperscriptSpan())).append("y").append(Utils.applySpannable("${bi[2]}",new SuperscriptSpan())).append(")\n")
+                        ssb.append("r = ${bi[0]} (").append(powCs("x",bi[1],true)).append(powCs("y",bi[2],true)).append(")\n")
                         ssb.append(Utils.applySpannable("${givenN}",new RelativeSizeSpan(0.8f))).append("Cr = ${bi[3]}\n")
                         //ssb.append(Utils.applySpannable("${n}",new SubscriptSpan())).append("Cr * ${1} * ${1} = ${it[4]}\\n")
                         ssb.append("\n"*2)
 
-                        result.append("${bi[4]}x").append(Utils.applySpannable("${bi[1]}",new SuperscriptSpan())).append("y").append(Utils.applySpannable("${bi[2]}",new SuperscriptSpan())).append("+")
-                        resultCopy.append("${bi[3]}*x^${bi[1]}*y^${bi[2]}+")
+                        result.append("${bi[4]}").append(powCs("x",bi[1],true)).append(powCs("y",bi[2],true)).append("+")
+                        resultCopy.append("${bi[3]}*").append(powCs("x",bi[1],false)).append(powCs("y",bi[1],false,false)).append("+")
                     }
-                    ssb.append("\n").append(result,0,result.length()-1).append("\n").append(resultCopy,0,resultCopy.length()-1)
+                    ssb.append("\n").append(result,0,result.length()-1).append("\n"*2).append(resultCopy,0,resultCopy.length()-1)
                     handler.post({
                         answer.text=ssb
                     })

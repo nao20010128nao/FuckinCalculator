@@ -47,7 +47,7 @@ public class Utils {
         def pow={BigInteger a,BigInteger b->
             if(a==BigInteger.ONE)return BigInteger.ONE//1^n=1
             if(b==BigInteger.ZERO)return BigInteger.ONE//n^0=1
-            if(b==BigInteger.ONE)return a//n^1=a
+            if(b==BigInteger.ONE)return a//n^1=n
             BigInteger now=BigInteger.ONE
             b.times{
                 now*=a
